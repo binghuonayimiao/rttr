@@ -129,11 +129,8 @@ endif()
 
 if (BUILD_WITH_STATIC_RUNTIME_LIBS)
     if (${BUILD_RTTR_DYNAMIC})
-        add_library(rttr_core_s STATIC ${UnityBuild} ${SRC_FILES} ${HPP_FILES})
-  
         add_library(rttr_core_s SHARED ${UnityBuild} ${SRC_FILES} ${HPP_FILES})
-
-    	add_library(RTTR::Core_STL ALIAS rttr_core_s)
+	add_library(RTTR::Core_STL ALIAS rttr_core_s)
     
     	target_compile_definitions(rttr_core_s PRIVATE RTTR_DLL_EXPORTS)
     	target_compile_definitions(rttr_core_s PUBLIC RTTR_DLL)
